@@ -1,13 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import Layout from '@/components/Layout';
+import Hero from '@/components/Hero';
+import UserForm, { UserData } from '@/components/UserForm';
+import ResultsDisplay from '@/components/ResultsDisplay';
 
 const Index = () => {
+  const [step, setStep] = useState<'intro' | 'form' | 'results'>('intro');
+  const [userData, setUserData] = useState<UserData | null>(null);
+
+  const handleGetStarted = () => {
+    setStep('form');
+    window.scrollTo(0, 0);
+  };
+
+  const handleFormComplete = (data: UserData) => {
+    setUserData(data);
+    setStep('results');
+    window.scrollTo(0, 0);
+  };
+
+  const handleBack = () => {
+    setStep('intro');
+    setUserData(null);
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Layout>
+      {step === 'intro' && (
+        <Hero onGetStarted={handleGetStarted} />
+      )}
+
+      {step === 'form' && (
+        <UserForm onComplete={handleFormComplete} />
+      )}
+
+      {step === 'results' && userData && (
+        <ResultsDisplay 
+          userData={userData}
+          onBack={handleBack}
+        />
+      )}
+    </Layout>
   );
 };
 
