@@ -9,6 +9,45 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      diet_plans: {
+        Row: {
+          additional_notes: string | null
+          allergies: string | null
+          created_at: string
+          dietary_restrictions: string | null
+          goal: string
+          id: string
+          plan_data: Json | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          additional_notes?: string | null
+          allergies?: string | null
+          created_at?: string
+          dietary_restrictions?: string | null
+          goal: string
+          id?: string
+          plan_data?: Json | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          additional_notes?: string | null
+          allergies?: string | null
+          created_at?: string
+          dietary_restrictions?: string | null
+          goal?: string
+          id?: string
+          plan_data?: Json | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -30,6 +69,66 @@ export type Database = {
           id?: string
           last_name?: string | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      user_health_info: {
+        Row: {
+          activity_level: string | null
+          age: number | null
+          allergies: string | null
+          budget: string | null
+          cooking_ability: string | null
+          created_at: string
+          cultural_factors: string | null
+          food_preferences: string | null
+          gender: string | null
+          goals: Json | null
+          height: string | null
+          id: string
+          medical_conditions: string | null
+          medications: string | null
+          updated_at: string
+          user_id: string
+          weight: string | null
+        }
+        Insert: {
+          activity_level?: string | null
+          age?: number | null
+          allergies?: string | null
+          budget?: string | null
+          cooking_ability?: string | null
+          created_at?: string
+          cultural_factors?: string | null
+          food_preferences?: string | null
+          gender?: string | null
+          goals?: Json | null
+          height?: string | null
+          id?: string
+          medical_conditions?: string | null
+          medications?: string | null
+          updated_at?: string
+          user_id: string
+          weight?: string | null
+        }
+        Update: {
+          activity_level?: string | null
+          age?: number | null
+          allergies?: string | null
+          budget?: string | null
+          cooking_ability?: string | null
+          created_at?: string
+          cultural_factors?: string | null
+          food_preferences?: string | null
+          gender?: string | null
+          goals?: Json | null
+          height?: string | null
+          id?: string
+          medical_conditions?: string | null
+          medications?: string | null
+          updated_at?: string
+          user_id?: string
+          weight?: string | null
         }
         Relationships: []
       }

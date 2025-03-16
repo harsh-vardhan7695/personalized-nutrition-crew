@@ -60,13 +60,19 @@ const CreatePlanPage = () => {
     setSubmitting(true);
     
     try {
-      // In a real application, you would save this to the database
-      // and potentially send it to an API for generating a diet plan
-      
-      console.log("Form values:", values);
-      
-      // Simulate processing time
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Save the diet plan to Supabase
+      const { error } = await supabase
+        .from("diet_plans")
+        .insert({
+          user_id: user.id,
+          goal: values.goal,
+          dietary_restrictions: values.dietaryRestrictions,
+          allergies: values.allergies,
+          additional_notes: values.additionalNotes,
+          status: 'pending'
+        });
+        
+      if (error) throw error;
       
       toast({
         title: "Diet plan request submitted",

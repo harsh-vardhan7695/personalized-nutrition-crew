@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +19,7 @@ import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 
 interface UserFormProps {
   onComplete: (data: UserData) => void;
+  initialData?: UserData;
   className?: string;
 }
 
@@ -87,13 +87,14 @@ const FORM_STEPS = [
 
 const UserForm: React.FC<UserFormProps> = ({ 
   onComplete,
+  initialData,
   className 
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Form data state
-  const [userData, setUserData] = useState<UserData>({
+  const [userData, setUserData] = useState<UserData>(initialData || {
     age: 30,
     gender: "Male",
     height: "",
@@ -108,6 +109,13 @@ const UserForm: React.FC<UserFormProps> = ({
     budget: "Moderate",
     culturalFactors: ""
   });
+
+  // Use useEffect to update userData when initialData changes
+  useEffect(() => {
+    if (initialData) {
+      setUserData(initialData);
+    }
+  }, [initialData]);
 
   // Handle input changes
   const handleChange = (field: keyof UserData, value: any) => {
