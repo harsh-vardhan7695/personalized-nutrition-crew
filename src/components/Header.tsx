@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 const Header: React.FC = () => {
   return (
-    <header className="py-4 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
+    <header className="py-4 border-b border-gray-100 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <span className="text-xl font-bold text-primary">NutriPlan</span>
@@ -16,25 +16,57 @@ const Header: React.FC = () => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent">Features</NavigationMenuTrigger>
+              <NavigationMenuLink asChild>
+                <Link to="/how-it-works" 
+                  className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                  )}>
+                  How It Works
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent">Browse Foods</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  <ListItem href="/health-assessment" title="Health Assessment">
-                    Complete a comprehensive health profile to receive personalized nutrition advice
+                  <ListItem href="/recipes" title="Recipe Database">
+                    Browse our extensive collection of healthy recipes
                   </ListItem>
-                  <ListItem href="/create-plan" title="Meal Planning">
-                    Create customized meal plans tailored to your health goals
+                  <ListItem href="/ingredients" title="Ingredient Guide">
+                    Learn about different ingredients and their nutritional benefits
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
+            
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent">Supported Diets</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                  <ListItem href="/diets/keto" title="Keto">
+                    High-fat, low-carb eating plan for weight loss and health
+                  </ListItem>
+                  <ListItem href="/diets/vegetarian" title="Vegetarian">
+                    Plant-based diet excluding meat but including dairy
+                  </ListItem>
+                  <ListItem href="/diets/vegan" title="Vegan">
+                    Entirely plant-based diet excluding all animal products
+                  </ListItem>
+                  <ListItem href="/diets/paleo" title="Paleo">
+                    Focus on whole foods that mimic ancestral eating patterns
+                  </ListItem>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link to="/dashboard" 
+                <Link to="/professionals" 
                   className={cn(
                     "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                   )}>
-                  Dashboard
+                  For Professionals
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -43,10 +75,10 @@ const Header: React.FC = () => {
         
         <div className="flex items-center gap-4">
           <Link to="/auth">
-            <Button variant="outline">Sign In</Button>
+            <Button variant="outline" size="sm">Sign In</Button>
           </Link>
           <Link to="/auth">
-            <Button>Get Started</Button>
+            <Button size="sm">Sign Up</Button>
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Check, ShoppingCart, Utensils, Calendar, Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 
@@ -10,41 +11,174 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className="py-16">
-        <Hero onGetStarted={() => navigate("/auth")} />
-        
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-panel rounded-xl p-6 shadow-lg">
-            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 1-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21a48.25 48.25 0 0 1-8.135-.687c-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold mb-2">Health Assessment</h3>
-            <p className="text-gray-600">Complete a comprehensive health profile to receive personalized nutrition advice tailored to your needs.</p>
-          </div>
+      {/* Hero Section */}
+      <Hero onGetStarted={() => navigate("/auth")} />
+      
+      {/* Create your meal plan in seconds */}
+      <section className="py-20 bg-slate-50">
+        <div className="container text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Create your meal plan right here in seconds</h2>
           
-          <div className="glass-panel rounded-xl p-6 shadow-lg">
-            <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="glass-panel rounded-xl p-6 shadow-lg">
+              <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                <Calendar className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Personalized Plans</h3>
+              <p className="text-gray-600">Get meal plans tailored to your health goals, dietary restrictions, and food preferences.</p>
             </div>
-            <h3 className="text-xl font-bold mb-2">AI-Powered Plans</h3>
-            <p className="text-gray-600">Our advanced AI creates meal plans that adapt to your dietary restrictions, preferences, and health goals.</p>
-          </div>
-          
-          <div className="glass-panel rounded-xl p-6 shadow-lg">
-            <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V19.5a2.25 2.25 0 0 0 2.25 2.25h.75m0-3.75h3.75m-3.75 3.75h3.75M9 21h3.75m3 0h3.75m-9.75 0h3.75" />
-              </svg>
+            
+            <div className="glass-panel rounded-xl p-6 shadow-lg">
+              <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                <Utensils className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">AI-Powered Recipes</h3>
+              <p className="text-gray-600">Discover delicious recipes that match your nutritional needs and cooking skill level.</p>
             </div>
-            <h3 className="text-xl font-bold mb-2">Progress Tracking</h3>
-            <p className="text-gray-600">Track your nutrition journey with detailed insights and recommendations to improve your health outcomes.</p>
+            
+            <div className="glass-panel rounded-xl p-6 shadow-lg">
+              <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                <ShoppingCart className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Smart Grocery Lists</h3>
+              <p className="text-gray-600">Automatically generate shopping lists based on your meal plan to save time and reduce waste.</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+      
+      {/* Available on multiple platforms */}
+      <section className="py-16">
+        <div className="container text-center">
+          <h2 className="text-3xl font-bold mb-8">Available on Web, iOS, and Android</h2>
+          
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/afed3996-8e41-4b2f-a1d6-c3a831932c32.png" alt="App Store" className="h-12 object-contain mb-4" />
+              <div className="flex items-center">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
+                  ))}
+                </div>
+                <span className="ml-2 text-sm text-gray-600">4.7</span>
+              </div>
+              <p className="text-xs text-gray-500">Over 21,000 reviews</p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/afed3996-8e41-4b2f-a1d6-c3a831932c32.png" alt="Google Play" className="h-12 object-contain mb-4" />
+              <div className="flex items-center">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
+                  ))}
+                </div>
+                <span className="ml-2 text-sm text-gray-600">4.6</span>
+              </div>
+              <p className="text-xs text-gray-500">Over 8,000 reviews</p>
+            </div>
+          </div>
+          
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold mb-6">As Seen In</h3>
+            <div className="flex flex-wrap justify-center items-center gap-8 grayscale opacity-70">
+              <div className="w-32 h-12 flex items-center justify-center">
+                <span className="text-xl font-serif font-bold">CNN</span>
+              </div>
+              <div className="w-32 h-12 flex items-center justify-center">
+                <span className="text-xl font-sans font-bold">lifehacker</span>
+              </div>
+              <div className="w-32 h-12 flex items-center justify-center">
+                <span className="text-xl font-serif italic font-bold">Washington Post</span>
+              </div>
+              <div className="w-32 h-12 flex items-center justify-center">
+                <span className="text-xl font-serif font-bold">healthline</span>
+              </div>
+              <div className="w-32 h-12 flex items-center justify-center">
+                <span className="text-xl font-serif italic font-bold">The Guardian</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Eating smart section */}
+      <section className="py-16 bg-slate-50">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-16">Eating smart has never been easier</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <div className="flex gap-6">
+              <div className="flex-shrink-0 w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                <Utensils className="w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Follow any eating style or create your own</h3>
+                <p className="text-gray-600">You can customize popular eating styles like vegan and paleo to match your needs and preferences.</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-6">
+              <div className="flex-shrink-0 w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                <Check className="w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Reduce food waste</h3>
+                <p className="text-gray-600">Planning ahead means less produce going bad in the fridge. And what you already own is the virtual pantry and our algorithms will use it all with priority.</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-6">
+              <div className="flex-shrink-0 w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center">
+                <Calendar className="w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Take the anxiety out of picking what to eat</h3>
+                <p className="text-gray-600">Make the important decisions ahead of time and on your own schedule. Then there's nothing to worry about when it's time to eat.</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-6">
+              <div className="flex-shrink-0 w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center">
+                <ShoppingCart className="w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Automatic grocery lists</h3>
+                <p className="text-gray-600">No more skipping meals because you're missing ingredients. Review your meals for the week and get groceries delivered or schedule a pickup.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex justify-center">
+            <Button size="lg" onClick={() => navigate("/auth")} className="rounded-md px-8">
+              Create A Free Account
+            </Button>
+          </div>
+        </div>
+      </section>
+      
+      {/* Pro section */}
+      <section className="py-16">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl font-bold">
+                <span className="text-slate-800">NutriPlan</span> <span className="text-primary">Pro</span>
+              </h3>
+              <p className="text-sm text-gray-500 mb-4">For Health & Fitness Professionals</p>
+              <p className="text-lg mb-6">Powerful, fast meal planning to level up your business.</p>
+              <Button variant="outline" size="lg" className="rounded-md">
+                Learn More
+              </Button>
+            </div>
+            
+            <div className="flex justify-center">
+              <img src="/lovable-uploads/cebffe0b-1c16-4587-93b4-f04d1f9fc083.png" alt="NutriPlan Pro" className="max-w-md w-full object-contain" />
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 };

@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { cn } from "@/lib/utils";
-import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 interface HeroProps {
   onGetStarted: () => void;
@@ -14,40 +14,42 @@ const Hero: React.FC<HeroProps> = ({
   className 
 }) => {
   return (
-    <div className={cn(
-      "py-20 flex flex-col items-center justify-center text-center animate-slide-up",
-      className
-    )}>
-      <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-100">
-        <Sparkles className="w-4 h-4 mr-2 text-blue-500" />
-        <span className="text-sm font-medium text-blue-700">Nutrition Reimagined</span>
-      </div>
-      
-      <h1 className="text-balance max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-        Personalized Nutrition Plans Tailored to Your Life
-      </h1>
-      
-      <p className="text-balance mt-6 max-w-2xl text-lg text-muted-foreground">
-        Our AI-powered nutrition advisor creates perfectly tailored meal plans, 
-        considering your health conditions, preferences, and goals for a healthier lifestyle.
-      </p>
-      
-      <div className="mt-10 flex flex-col sm:flex-row gap-4">
-        <Button 
-          size="lg" 
-          className="rounded-full px-8 py-6 text-base font-medium shadow-lg transition-all hover:shadow-xl bg-primary hover:bg-primary/90"
-          onClick={onGetStarted}
-        >
-          Get Started
-        </Button>
+    <div className="container grid grid-cols-1 md:grid-cols-2 gap-12 py-16 items-center">
+      <div className="flex flex-col space-y-6 max-w-xl">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
+          Put your diet on <span className="text-primary">autopilot.</span>
+        </h1>
         
-        <Button 
-          variant="outline" 
-          size="lg" 
-          className="rounded-full px-8 py-6 text-base font-medium shadow-sm hover:shadow-md bg-white"
-        >
-          Learn More
-        </Button>
+        <p className="text-lg text-muted-foreground">
+          NutriPlan creates personalized meal plans based on your food preferences, budget, and schedule. Reach your diet and nutritional goals with our calorie calculator, weekly meal plans, grocery lists and more.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <Button 
+            size="lg" 
+            className="rounded-md text-base font-medium"
+            onClick={onGetStarted}
+          >
+            Get Started
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="rounded-md text-base font-medium"
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+
+      <div className="hidden md:flex justify-center items-center">
+        <img 
+          src="/lovable-uploads/990e7c41-e34f-4f36-8525-a90b9bda9963.png" 
+          alt="NutriPlan App" 
+          className="max-w-md w-full object-contain animate-slide-up"
+        />
       </div>
     </div>
   );
