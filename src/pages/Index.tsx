@@ -6,6 +6,7 @@ import { Check, ShoppingCart, Utensils, Calendar, Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 import { Link } from "react-router-dom";
+import Testimonials from "@/components/Testimonials";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -47,6 +48,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Testimonials Section */}
+      <Testimonials />
       
       {/* Eating smart section */}
       <section className="py-16 bg-slate-50">
