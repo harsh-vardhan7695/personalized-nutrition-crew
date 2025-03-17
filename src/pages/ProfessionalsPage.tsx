@@ -1,16 +1,24 @@
 
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Users, FileText, Smartphone, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const ProfessionalsPage = () => {
+  const navigate = useNavigate();
+  const featuresRef = useRef<HTMLDivElement>(null);
+
+  const scrollToFeatures = () => {
+    featuresRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-r from-orange-50 to-rose-50">
-        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6 max-w-xl">
+        <div className="container grid grid-cols-1 gap-8 items-center">
+          <div className="space-y-6 max-w-xl mx-auto text-center lg:text-left lg:mx-0">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
               Powerful, Fast Meal Planning To Level Up Your Business
             </h1>
@@ -19,11 +27,12 @@ const ProfessionalsPage = () => {
               NutriPlan Pro lets fitness and health professionals expand their services and provide even more value to their clients — all without eating into everyone's busy schedules.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <Button 
                 variant="default" 
                 size="lg" 
                 className="rounded-md text-base font-medium bg-orange-500 hover:bg-orange-600"
+                onClick={scrollToFeatures}
               >
                 See Our Features
               </Button>
@@ -32,18 +41,11 @@ const ProfessionalsPage = () => {
                 variant="secondary" 
                 size="lg" 
                 className="rounded-md text-base font-medium"
+                onClick={() => navigate("/auth")}
               >
                 Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
-          </div>
-
-          <div className="hidden lg:block">
-            <img 
-              src="/lovable-uploads/9c211b6e-7b01-44db-af25-b9791c1be1da.png" 
-              alt="NutriPlan Professional Dashboard" 
-              className="rounded-lg shadow-lg w-full"
-            />
           </div>
         </div>
       </section>
@@ -93,7 +95,7 @@ const ProfessionalsPage = () => {
       </section>
       
       {/* Features Section */}
-      <section className="py-16 bg-slate-800 text-white">
+      <section ref={featuresRef} className="py-16 bg-slate-800 text-white">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-12">NutriPlan Pro Features</h2>
           
@@ -172,6 +174,7 @@ const ProfessionalsPage = () => {
             <Button 
               size="lg" 
               className="rounded-md text-base font-medium bg-green-600 hover:bg-green-700"
+              onClick={() => navigate("/auth")}
             >
               Sign Up For Professional Account
             </Button>
