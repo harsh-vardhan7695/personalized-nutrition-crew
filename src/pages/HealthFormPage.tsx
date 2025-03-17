@@ -57,7 +57,8 @@ const HealthFormPage = () => {
             foodPreferences: healthData.food_preferences || "",
             cookingAbility: healthData.cooking_ability || "Average",
             budget: healthData.budget || "Moderate",
-            culturalFactors: healthData.cultural_factors || ""
+            culturalFactors: healthData.cultural_factors || "",
+            planDuration: healthData.plan_duration || 3
           });
         }
       } catch (fetchError) {
@@ -92,6 +93,7 @@ const HealthFormPage = () => {
           cooking_ability: data.cookingAbility,
           budget: data.budget,
           cultural_factors: data.culturalFactors,
+          plan_duration: data.planDuration,
           updated_at: new Date().toISOString()
         }, { onConflict: 'user_id' });
         

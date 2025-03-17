@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -42,6 +43,7 @@ export interface UserData {
   cookingAbility: string;
   budget: string;
   culturalFactors: string;
+  planDuration: number; // New field for plan duration in days
 }
 
 const ACTIVITY_LEVELS = [
@@ -79,6 +81,8 @@ const BUDGET_LEVELS = [
   "No Constraints"
 ];
 
+const PLAN_DURATIONS = [1, 2, 3, 4, 5, 6, 7];
+
 const FORM_STEPS = [
   "Basic Info", 
   "Health Details", 
@@ -107,7 +111,8 @@ const UserForm: React.FC<UserFormProps> = ({
     foodPreferences: "",
     cookingAbility: "Average",
     budget: "Moderate",
-    culturalFactors: ""
+    culturalFactors: "",
+    planDuration: 3 // Default to 3 days
   });
 
   // Use useEffect to update userData when initialData changes
@@ -381,6 +386,26 @@ const UserForm: React.FC<UserFormProps> = ({
                     {BUDGET_LEVELS.map((level) => (
                       <SelectItem key={level} value={level}>
                         {level}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              {/* New Plan Duration Dropdown */}
+              <div className="space-y-2">
+                <Label>Plan Duration (Days)</Label>
+                <Select
+                  value={userData.planDuration.toString()}
+                  onValueChange={(value) => handleChange('planDuration', parseInt(value))}
+                >
+                  <SelectTrigger className="focus-ring">
+                    <SelectValue placeholder="Select plan duration" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {PLAN_DURATIONS.map((days) => (
+                      <SelectItem key={days} value={days.toString()}>
+                        {days} {days === 1 ? 'Day' : 'Days'}
                       </SelectItem>
                     ))}
                   </SelectContent>
