@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { UserData } from './UserForm';
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "@/components/ui/card";
 import InfoCard from './InfoCard';
+import RatingDialog from './RatingDialog';
 import { 
   ArrowLeft, 
   Clipboard, 
@@ -170,6 +171,16 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState("plan");
   const [copied, setCopied] = useState(false);
+  const [showRatingDialog, setShowRatingDialog] = useState(false);
+  
+  useEffect(() => {
+    // Show rating dialog after 3 seconds of displaying results
+    const timer = setTimeout(() => {
+      setShowRatingDialog(true);
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(sampleNutritionPlan);
@@ -580,6 +591,12 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
           </p>
         </CardContent>
       </Card>
+      
+      {/* Rating Dialog */}
+      <RatingDialog 
+        open={showRatingDialog} 
+        onOpenChange={setShowRatingDialog} 
+      />
     </div>
   );
 };

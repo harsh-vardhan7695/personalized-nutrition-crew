@@ -48,39 +48,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Available on multiple platforms */}
-      <section className="py-16">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-8">Available on Web, iOS, and Android</h2>
-          
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
-            <div className="flex flex-col items-center">
-              <div className="flex items-center">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
-                  ))}
-                </div>
-                <span className="ml-2 text-sm text-gray-600">4.7</span>
-              </div>
-              <p className="text-xs text-gray-500">Over 21,000 reviews</p>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <div className="flex items-center">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
-                  ))}
-                </div>
-                <span className="ml-2 text-sm text-gray-600">4.6</span>
-              </div>
-              <p className="text-xs text-gray-500">Over 8,000 reviews</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Eating smart section */}
       <section className="py-16 bg-slate-50">
         <div className="container">
