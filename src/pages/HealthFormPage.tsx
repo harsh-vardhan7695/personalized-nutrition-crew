@@ -6,6 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import UserForm, { UserData } from "@/components/UserForm";
 import ResultsDisplay from "@/components/ResultsDisplay";
+import Layout from "@/components/Layout";
+import { ArrowLeft, Loader2 } from "lucide-react";
 
 const HealthFormPage = () => {
   const [loading, setLoading] = useState(true);
@@ -126,21 +128,38 @@ const HealthFormPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
-      </div>
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="flex flex-col items-center p-8 rounded-xl bg-white/80 backdrop-blur-sm shadow-lg border border-blue-100">
+            <Loader2 className="h-10 w-10 text-blue-500 animate-spin mb-4" />
+            <p className="text-blue-700 font-medium">Loading your health profile...</p>
+          </div>
+        </div>
+      </Layout>
     );
   }
 
   return (
-    <div className="min-h-screen p-6">
-      <div className="max-w-4xl mx-auto">
+    <Layout>
+      <div className="min-h-screen py-6">
         {!formCompleted && (
-          <div className="flex items-center mb-8">
-            <Button variant="outline" onClick={handleBackToDashboard} className="mr-4">
-              Back to Dashboard
-            </Button>
-            <h1 className="text-3xl font-bold">Health Assessment</h1>
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="flex items-center">
+              <Button 
+                variant="outline" 
+                onClick={handleBackToDashboard} 
+                className="mr-4 rounded-full px-4 py-2 shadow-sm hover:shadow-md bg-white/90 backdrop-blur-sm"
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Dashboard
+              </Button>
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
+                Health Assessment
+              </h1>
+            </div>
+            <p className="mt-2 text-muted-foreground max-w-2xl ml-14">
+              Complete this assessment to receive a personalized nutrition plan based on your unique health profile and goals.
+            </p>
           </div>
         )}
         
@@ -153,7 +172,7 @@ const HealthFormPage = () => {
           userData && <ResultsDisplay userData={userData} onBack={handleBackToForm} />
         )}
       </div>
-    </div>
+    </Layout>
   );
 };
 
