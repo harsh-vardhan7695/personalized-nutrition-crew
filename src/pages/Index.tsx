@@ -55,7 +55,6 @@ const Index = () => {
           
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
             <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/afed3996-8e41-4b2f-a1d6-c3a831932c32.png" alt="App Store" className="h-12 object-contain mb-4" />
               <div className="flex items-center">
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((_, i) => (
@@ -68,7 +67,6 @@ const Index = () => {
             </div>
             
             <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/afed3996-8e41-4b2f-a1d6-c3a831932c32.png" alt="Google Play" className="h-12 object-contain mb-4" />
               <div className="flex items-center">
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((_, i) => (
@@ -78,27 +76,6 @@ const Index = () => {
                 <span className="ml-2 text-sm text-gray-600">4.6</span>
               </div>
               <p className="text-xs text-gray-500">Over 8,000 reviews</p>
-            </div>
-          </div>
-          
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold mb-6">As Seen In</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 grayscale opacity-70">
-              <div className="w-32 h-12 flex items-center justify-center">
-                <span className="text-xl font-serif font-bold">CNN</span>
-              </div>
-              <div className="w-32 h-12 flex items-center justify-center">
-                <span className="text-xl font-sans font-bold">lifehacker</span>
-              </div>
-              <div className="w-32 h-12 flex items-center justify-center">
-                <span className="text-xl font-serif italic font-bold">Washington Post</span>
-              </div>
-              <div className="w-32 h-12 flex items-center justify-center">
-                <span className="text-xl font-serif font-bold">healthline</span>
-              </div>
-              <div className="w-32 h-12 flex items-center justify-center">
-                <span className="text-xl font-serif italic font-bold">The Guardian</span>
-              </div>
             </div>
           </div>
         </div>
