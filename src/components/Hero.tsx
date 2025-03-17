@@ -15,8 +15,8 @@ const Hero: React.FC<HeroProps> = ({
   className 
 }) => {
   return (
-    <div className="container grid grid-cols-1 md:grid-cols-2 gap-12 py-16 items-center">
-      <div className="flex flex-col space-y-6 max-w-xl">
+    <div className="container py-16 items-center">
+      <div className="flex flex-col space-y-6 max-w-2xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
           Put your diet on <span className="text-primary">autopilot.</span>
         </h1>
@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({
           NutriPlan creates personalized meal plans based on your food preferences, budget, and schedule. Reach your diet and nutritional goals with our calorie calculator, weekly meal plans, grocery lists and more.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
           <Button 
             size="lg" 
             className="rounded-md text-base font-medium"
@@ -44,14 +44,6 @@ const Hero: React.FC<HeroProps> = ({
             <Link to="/professionals">Learn More</Link>
           </Button>
         </div>
-      </div>
-
-      <div className="hidden md:flex justify-center items-center">
-        <img 
-          src="/lovable-uploads/990e7c41-e34f-4f36-8525-a90b9bda9963.png" 
-          alt="NutriPlan App" 
-          className="max-w-md w-full object-contain animate-slide-up"
-        />
       </div>
     </div>
   );

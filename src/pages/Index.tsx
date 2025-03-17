@@ -139,8 +139,8 @@ const Index = () => {
       {/* Pro section */}
       <section className="py-16">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid grid-cols-1 gap-12 items-center">
+            <div className="text-center">
               <h3 className="text-2xl font-bold">
                 <span className="text-slate-800">NutriPlan</span> <span className="text-primary">Pro</span>
               </h3>
@@ -154,10 +154,6 @@ const Index = () => {
               >
                 <Link to="/professionals">Learn More</Link>
               </Button>
-            </div>
-            
-            <div className="flex justify-center">
-              <img src="/lovable-uploads/cebffe0b-1c16-4587-93b4-f04d1f9fc083.png" alt="NutriPlan Pro" className="max-w-md w-full object-contain" />
             </div>
           </div>
         </div>
