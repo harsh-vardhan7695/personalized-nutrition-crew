@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -38,6 +39,8 @@ const Hero: React.FC<HeroProps> = ({
             variant="outline" 
             size="lg" 
             className="rounded-md text-base font-medium"
+            as={Link}
+            to="/professionals"
           >
             Learn More
           </Button>

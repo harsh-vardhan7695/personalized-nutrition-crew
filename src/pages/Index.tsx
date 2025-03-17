@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check, ShoppingCart, Utensils, Calendar, Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -168,7 +169,13 @@ const Index = () => {
               </h3>
               <p className="text-sm text-gray-500 mb-4">For Health & Fitness Professionals</p>
               <p className="text-lg mb-6">Powerful, fast meal planning to level up your business.</p>
-              <Button variant="outline" size="lg" className="rounded-md">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="rounded-md"
+                as={Link}
+                to="/professionals"
+              >
                 Learn More
               </Button>
             </div>
