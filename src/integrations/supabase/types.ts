@@ -88,6 +88,7 @@ export type Database = {
           id: string
           medical_conditions: string | null
           medications: string | null
+          plan_duration: number | null
           updated_at: string
           user_id: string
           weight: string | null
@@ -107,6 +108,7 @@ export type Database = {
           id?: string
           medical_conditions?: string | null
           medications?: string | null
+          plan_duration?: number | null
           updated_at?: string
           user_id: string
           weight?: string | null
@@ -126,6 +128,7 @@ export type Database = {
           id?: string
           medical_conditions?: string | null
           medications?: string | null
+          plan_duration?: number | null
           updated_at?: string
           user_id?: string
           weight?: string | null
