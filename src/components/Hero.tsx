@@ -39,10 +39,9 @@ const Hero: React.FC<HeroProps> = ({
             variant="outline" 
             size="lg" 
             className="rounded-md text-base font-medium"
-            as={Link}
-            to="/professionals"
+            asChild
           >
-            Learn More
+            <Link to="/professionals">Learn More</Link>
           </Button>
         </div>
       </div>

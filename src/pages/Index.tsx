@@ -173,10 +173,9 @@ const Index = () => {
                 variant="outline" 
                 size="lg" 
                 className="rounded-md"
-                as={Link}
-                to="/professionals"
+                asChild
               >
-                Learn More
+                <Link to="/professionals">Learn More</Link>
               </Button>
             </div>
             
